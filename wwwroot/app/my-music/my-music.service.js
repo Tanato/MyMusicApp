@@ -3,69 +3,47 @@
 angular.module('myMusic')
     .factory('myMusicService', ['$http', '$q', function ($http, $q) {
 
-        var tempPlaylist = {
+        var tempUser = {
             user: {
                 id: 1,
-                name: 'tanato'
+                nome: 'Tanato'
             },
             playlist: []
         };
 
-        var tempLibrary = [{
-            id: 1,
-            nome: 'Two Minutes To Midnight',
-            artista: {
-                id: 1,
-                nome: 'Iron Maiden'
-            }
-        }, {
-            id: 2,
-            nome: 'Aces High',
-            artista: {
-                id: 1,
-                nome: 'Iron Maiden'
-            }
-        }];
-
         return {
-            getPlaylist: getPlaylist,
             getLibrary: getLibrary,
+            getUserPlaylist: getUserPlaylist,
             addToPlaylist: addToPlaylist,
             removeFromPlaylist: removeFromPlaylist,
         }
 
+        function getLibrary(filter) {
+            return $http.get('http://localhost:5000/api/Musicas/' + filter)
+                .then(function (response) {
+                    return response.data
+                });
+        }
+
+        function getUserPlaylist(filter) {
+            var deferred = $q.defer();
+            deferred.resolve(tempUser);
+            return deferred.promise;
+        }
+
         function addToPlaylist(id) {
             var deferred = $q.defer();
-            tempPlaylist.playlist.push(id)
-            deferred.resolve(tempPlaylist);
+            tempUser.playlist.push(id)
+            deferred.resolve(tempUser);
             return deferred.promise;
         }
 
         function removeFromPlaylist(id) {
             var deferred = $q.defer();
-            _.remove(tempPlaylist.playlist, {
+            _.remove(tempUser.playlist, {
                 id: id
             });
-            deferred.resolve(tempPlaylist);
+            deferred.resolve(tempUser);
             return deferred.promise;
         }
-
-        function getPlaylist(filter) {
-            var deferred = $q.defer();
-            deferred.resolve(tempPlaylist);
-            return deferred.promise;
-        }
-
-        function getLibrary(filter) {
-            var deferred = $q.defer();
-            if (!filter) {
-                deferred.resolve(tempLibrary)
-            } else {
-                deferred.resolve(_.filter(tempLibrary, function (i) {
-                    return _.includes(i, filter) || _.includes(i.artista, filter);
-                }));
-            }
-            return deferred.promise;
-        }
-
     }]);

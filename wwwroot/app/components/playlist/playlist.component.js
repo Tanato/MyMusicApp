@@ -5,7 +5,7 @@ angular.module('myMusic')
     templateUrl: 'app/components/playlist/playlist.html',
     controllerAs: 'vm',
     bindings: {
-      model: '<',
+      user: '<',
       remover: '<'
     },
     controller: function () {

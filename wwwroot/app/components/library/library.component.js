@@ -5,9 +5,18 @@ angular.module('myMusic')
     templateUrl: 'app/components/library/library.html',
     controllerAs: 'vm',
     bindings: {
-      model: '<',
+      library: '<',
+      user: '<',
       adicionar: '<',
       buscar: '<'
     },
-    controller: function () {}
+    controller: function () {
+      var vm = this;
+
+      vm.isDisabled = function (id) {
+        return vm.user && _.some(vm.user.playlist, {
+          id: id
+        });
+      }
+    }
   });

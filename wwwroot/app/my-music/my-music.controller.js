@@ -5,22 +5,29 @@ angular.module('myMusic')
 
     var vm = this;
 
-    myMusicService.getPlaylist('teste')
-      .then(function (data) {
-        vm.playlist = data;
-      });
-
     myMusicService.getLibrary()
       .then(function (data) {
         vm.library = data;
       });
 
+    myMusicService.getUserPlaylist('tanato')
+      .then(function (data) {
+        vm.user = data;
+      });
+
+    vm.buscar = function (filter) {
+      myMusicService.getLibrary(filter)
+        .then(function (data) {
+          vm.library = data;
+        });
+    }
+
     vm.remover = function (id) {
       myMusicService.removeFromPlaylist(id)
         .then(function () {
-          myMusicService.getPlaylist('tanato')
+          myMusicService.getUserPlaylist('tanato')
             .then(function (data) {
-              vm.playlist = data;
+              vm.user = data;
             });
         });
     }
@@ -28,17 +35,10 @@ angular.module('myMusic')
     vm.adicionar = function (id) {
       myMusicService.addToPlaylist(id)
         .then(function () {
-          myMusicService.getPlaylist('tanato')
+          myMusicService.getUserPlaylist('tanato')
             .then(function (data) {
-              vm.playlist = data;
+              vm.user = data;
             });
-        });
-    }
-
-    vm.buscar = function (filter) {
-      myMusicService.getLibrary(filter)
-        .then(function (data) {
-          vm.library = data;
         });
     }
   }]);
