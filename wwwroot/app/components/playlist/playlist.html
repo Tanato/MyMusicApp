@@ -1,0 +1,9 @@
+<div>
+    <div>
+    </div>
+    <div ng-repeat="item in vm.model.playlist">
+        <button ng-click="vm.remover(item.id)" class="fas fa-trash"></button>
+        <div>{{item.artista.nome}}</div>
+        <div>{{item.nome}}</div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div>
+    <div>
+        <input ng-model="vm.filter" ng-minlength="3"></input>
+        <button ng-click="vm.buscar(vm.filter)" class="fas fa-search"></button>
+    </div>
+    <div ng-repeat="item in vm.model">
+        <button ng-click="vm.adicionar(item)" class="fas fa-plus"></button>
+        <div>{{item.artista.nome}}</div>
+        <div>{{item.nome}}</div>
+    </div>
+</div>

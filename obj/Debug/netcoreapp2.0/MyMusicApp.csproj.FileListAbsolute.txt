@@ -1,0 +1,10 @@
+C:\Users\tanat\projects\MyMusicApp\bin\Debug\netcoreapp2.0\MyMusicApp.deps.json
+C:\Users\tanat\projects\MyMusicApp\bin\Debug\netcoreapp2.0\MyMusicApp.runtimeconfig.json
+C:\Users\tanat\projects\MyMusicApp\bin\Debug\netcoreapp2.0\MyMusicApp.runtimeconfig.dev.json
+C:\Users\tanat\projects\MyMusicApp\bin\Debug\netcoreapp2.0\MyMusicApp.dll
+C:\Users\tanat\projects\MyMusicApp\bin\Debug\netcoreapp2.0\MyMusicApp.pdb
+C:\Users\tanat\projects\MyMusicApp\obj\Debug\netcoreapp2.0\MyMusicApp.csproj.CoreCompileInputs.cache
+C:\Users\tanat\projects\MyMusicApp\obj\Debug\netcoreapp2.0\MyMusicApp.AssemblyInfoInputs.cache
+C:\Users\tanat\projects\MyMusicApp\obj\Debug\netcoreapp2.0\MyMusicApp.AssemblyInfo.cs
+C:\Users\tanat\projects\MyMusicApp\obj\Debug\netcoreapp2.0\MyMusicApp.dll
+C:\Users\tanat\projects\MyMusicApp\obj\Debug\netcoreapp2.0\MyMusicApp.pdb
