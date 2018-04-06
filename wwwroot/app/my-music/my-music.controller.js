@@ -10,7 +10,7 @@ angular.module('myMusic')
         vm.library = data;
       });
 
-    myMusicService.getUserPlaylist('tanato')
+    myMusicService.getUserPlaylist('default')
       .then(function (data) {
         vm.playlist = data;
       });
