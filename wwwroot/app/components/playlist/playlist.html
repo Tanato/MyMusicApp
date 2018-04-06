@@ -1,7 +1,9 @@
-<div> Playlist
+<div>
+    <h2 style="text-align: center">PLAYLIST</h2>
     <form ng-submit="vm.buscar(vm.playlist.usuario.nome)">
-        <input ng-model="vm.playlist.usuario.nome" ng-minlength="3"></input>
-        <button class="fas fa-search"></button>
+        Usuário:
+        <input ng-model="vm.playlist.usuario.nome" ng-minlength="3" style="font-size:14pt;font-family: Verdana, sans-serif;"></input>
+        <button class="fas fa-search" style="font-size:14pt"></button>
     </form>
     <hr>
     <div ng-repeat="item in vm.playlist.playlistMusicas track by item.musicaId">

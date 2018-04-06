@@ -4,13 +4,17 @@ angular.module('myMusic')
   .controller('MyMusicController', ['myMusicService', function (myMusicService) {
 
     var vm = this;
+    var show = false;
 
     myMusicService.getLibrary()
       .then(function (data) {
         vm.library = data;
+        vm.show = true;
+      }, function () {
+        alert('Ambiente OK. Let\'s Rock!');
       });
 
-    myMusicService.getUserPlaylist('tanato')
+    myMusicService.getUserPlaylist('default')
       .then(function (data) {
         vm.playlist = data;
       });
