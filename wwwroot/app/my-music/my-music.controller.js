@@ -4,7 +4,7 @@ angular.module('myMusic')
   .controller('MyMusicController', ['myMusicService', function (myMusicService) {
 
     var vm = this;
-    var show = false;
+    vm.show = false;
 
     myMusicService.getLibrary()
       .then(function (data) {
