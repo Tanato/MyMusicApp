@@ -5,8 +5,9 @@ angular.module('myMusic')
     templateUrl: 'app/components/playlist/playlist.html',
     controllerAs: 'vm',
     bindings: {
-      user: '<',
-      remover: '<'
+      playlist: '<',
+      remover: '<',
+      buscar: '<'
     },
     controller: function () {
       var vm = this;

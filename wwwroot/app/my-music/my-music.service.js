@@ -3,14 +3,6 @@
 angular.module('myMusic')
     .factory('myMusicService', ['$http', '$q', function ($http, $q) {
 
-        var tempUser = {
-            user: {
-                id: 1,
-                nome: 'Tanato'
-            },
-            playlist: []
-        };
-
         return {
             getLibrary: getLibrary,
             getUserPlaylist: getUserPlaylist,
@@ -19,31 +11,30 @@ angular.module('myMusic')
         }
 
         function getLibrary(filter) {
-            return $http.get('http://localhost:5000/api/Musicas/' + filter)
+            return $http.get('http://localhost:5001/api/musica/' + filter)
                 .then(function (response) {
-                    return response.data
+                    return response.data;
                 });
         }
 
         function getUserPlaylist(filter) {
-            var deferred = $q.defer();
-            deferred.resolve(tempUser);
-            return deferred.promise;
+            return $http.get('http://localhost:5002/api/playlist/' + filter)
+                .then(function (response) {
+                    return response.data || {};
+                });
         }
 
-        function addToPlaylist(id) {
-            var deferred = $q.defer();
-            tempUser.playlist.push(id)
-            deferred.resolve(tempUser);
-            return deferred.promise;
+        function addToPlaylist(playlistId, musica) {
+            return $http.put('http://localhost:5002/api/playlist/addmusica/' + playlistId, musica)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
-        function removeFromPlaylist(id) {
-            var deferred = $q.defer();
-            _.remove(tempUser.playlist, {
-                id: id
-            });
-            deferred.resolve(tempUser);
-            return deferred.promise;
+        function removeFromPlaylist(playlistId, musica) {
+            return $http.put('http://localhost:5002/api/playlist/removemusica/' + playlistId, musica)
+                .then(function (response) {
+                    return response.data;
+                });
         }
     }]);

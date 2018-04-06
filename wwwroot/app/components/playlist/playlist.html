@@ -1,10 +1,12 @@
-<div>
-    <div>
-        {{vm.user.nome}}
-    </div>
-    <div ng-repeat="item in vm.user.playlist track by item.id">
-        <button ng-click="vm.remover(item.id)" class="fas fa-trash"></button>
-        <div>{{item.artista.nome}}</div>
-        <div>{{item.nome}}</div>
+<div> Playlist
+    <form ng-submit="vm.buscar(vm.playlist.usuario.nome)">
+        <input ng-model="vm.playlist.usuario.nome" ng-minlength="3"></input>
+        <button class="fas fa-search"></button>
+    </form>
+    <hr>
+    <div ng-repeat="item in vm.playlist.playlistMusicas track by item.musicaId">
+        <button ng-click="vm.remover(item.playlistId, item.musica)" class="fas fa-trash" style="margin-top: 5px; display: inline-block;"></button>
+        <div style="display: inline-block;">{{item.musica.artista.nome}} - {{item.musica.nome}}</div>
+        <hr>
     </div>
 </div>

@@ -1,8 +1,8 @@
 <div class="row">
-    <div class="column">
-        <library library="vm.library" adicionar="vm.adicionar" buscar="vm.buscar", user="vm.user"></library>
+    <div class="column" style="overflow-y: scroll; height:650px;">
+        <library library="vm.library" adicionar="vm.adicionar" buscar="vm.buscarLibrary", playlist="vm.playlist"></library>
     </div>
-    <div class="column">
-        <playlist user="vm.user" remover="vm.remover"></playlist>
+    <div class="column" style="overflow-y: scroll; height:650px;">
+        <playlist playlist="vm.playlist" buscar="vm.buscarUserPlaylist" remover="vm.remover"></playlist>
     </div>
 </div>

@@ -1,11 +1,12 @@
-<div>
+<div> Biblioteca de músicas
     <form ng-submit="vm.buscar(vm.filter)">
         <input ng-model="vm.filter" ng-minlength="3"></input>
-        <button ng-click="vm.buscar(vm.filter)" class="fas fa-search"></button>
+        <button class="fas fa-search"></button>
     </form>
+    <hr>
     <div ng-repeat="item in vm.library track by item.id" ng-disabled="vm.isDisabled(item.id)">
-        <button ng-click="vm.adicionar(item)" ng-disabled="vm.isDisabled(item.id)" class="fas fa-plus"></button>
-        <div>{{item.artista.nome}}</div>
-        <div>{{item.nome}}</div>
+        <button ng-click="vm.adicionar(vm.playlist.id, item)" ng-disabled="vm.isDisabled(item.id)" class="fas fa-plus" style="margin-top: 5px; display: inline-block;"></button>
+        <div style="display: inline-block;">{{item.artista.nome}} - {{item.nome}}</div>
+        <hr>
     </div>
 </div>

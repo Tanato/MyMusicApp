@@ -6,7 +6,7 @@ angular.module('myMusic')
     controllerAs: 'vm',
     bindings: {
       library: '<',
-      user: '<',
+      playlist: '<',
       adicionar: '<',
       buscar: '<'
     },
@@ -14,8 +14,8 @@ angular.module('myMusic')
       var vm = this;
 
       vm.isDisabled = function (id) {
-        return vm.user && _.some(vm.user.playlist, {
-          id: id
+        return vm.playlist && _.some(vm.playlist.playlistMusicas, {
+          musicaId: id
         });
       }
     }
